@@ -1,0 +1,200 @@
+<game name="AvalancheSample">
+   <!-- Game config -->
+   <config>
+      <gameName>Avalanche Sample</gameName>
+      <description>Sample Avalanche game for NullpoMino</description>
+      <gameType>Avalanche</gameType>
+      <piecePreview>2</piecePreview>
+      <randomizerBlackjack>I2</randomizerBlackjack>
+      <stackFallType>FreeFall</stackFallType>
+      <alwaysCheckStackFall>true</alwaysCheckStackFall>
+      <fieldWidth>6</fieldWidth>
+      <fieldHeight>12</fieldHeight>
+      <fieldHiddenHeight>1</fieldHiddenHeight>
+   </config>
+   <!-- Block definitions-->
+   <blocks>
+      <block name="Red block" color="Red">
+         <tags>
+               <string>Red</string>
+         </tags>
+      </block>
+      <block name="Green block" color="Green">
+         <tags>
+               <string>Green</string>
+         </tags>
+      </block>
+      <block name="Blue block" color="Blue">
+         <tags>
+               <string>Blue</string>
+         </tags>
+      </block>
+      <block name="Yellow block" color="Yellow">
+         <tags>
+               <string>Yellow</string>
+         </tags>
+      </block>
+      <block name="Purple block" color="Purple">
+         <tags>
+               <string>Purple</string>
+         </tags>
+      </block>
+   </blocks>
+   <!-- Piece definitions-->
+   <pieces>
+      <piece name="I2" randomizeBlock="true">
+         <blocks>
+            <string>Red block</string>
+            <string>Green block</string>
+            <string>Blue block</string>
+            <string>Yellow block</string>
+         </blocks>
+         <states>
+            <pieceState spawnOffsetX="-1" spawnOffsetY="0">
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="1"/>
+            </pieceState>
+            <pieceState spawnOffsetX="-1" spawnOffsetY="0">
+               <XYPair x="2" y="1"/>
+               <XYPair x="1" y="1"/>
+            </pieceState>
+            <pieceState spawnOffsetX="-1" spawnOffsetY="0">
+               <XYPair x="1" y="2"/>
+               <XYPair x="1" y="1"/>
+            </pieceState>
+            <pieceState spawnOffsetX="-1" spawnOffsetY="0">
+               <XYPair x="0" y="1"/>
+               <XYPair x="1" y="1"/>
+            </pieceState>
+         </states>
+         <wallkicks>
+            <wallkick type="Offsets" stateFrom="0" stateTo="3">
+               <XYPair x="0" y="-1"/>
+               <XYPair x="1" y="0"/>
+               <XYPair x="-1" y="0"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="1" stateTo="0">
+               <XYPair x="0" y="-1"/>
+               <XYPair x="1" y="0"/>
+               <XYPair x="-1" y="0"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="2" stateTo="1">
+               <XYPair x="0" y="-1"/>
+               <XYPair x="1" y="0"/>
+               <XYPair x="-1" y="0"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="3" stateTo="2">
+               <XYPair x="0" y="-1"/>
+               <XYPair x="1" y="0"/>
+               <XYPair x="-1" y="0"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="0" stateTo="1">
+               <XYPair x="0" y="-1"/>
+               <XYPair x="-1" y="0"/>
+               <XYPair x="1" y="0"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="1" stateTo="2">
+               <XYPair x="0" y="-1"/>
+               <XYPair x="-1" y="0"/>
+               <XYPair x="1" y="0"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="2" stateTo="3">
+               <XYPair x="0" y="-1"/>
+               <XYPair x="-1" y="0"/>
+               <XYPair x="1" y="0"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="3" stateTo="0">
+               <XYPair x="0" y="-1"/>
+               <XYPair x="-1" y="0"/>
+               <XYPair x="1" y="0"/>
+            </wallkick>
+         </wallkicks>
+      </piece>
+   </pieces>
+   <!-- Pattern definitions-->
+   <patterns>
+      <pattern name="Red Clear" method="FloodFill" action="Delete" manual="false" minMatch="4" maxMatch="0">
+         <tags>
+               <string>Red</string>         
+         </tags>
+      </pattern>
+      <pattern name="Green Clear" method="FloodFill" action="Delete" manual="false" minMatch="4" maxMatch="0">
+         <tags>
+               <string>Green</string>         
+         </tags>
+      </pattern>
+      <pattern name="Blue Clear" method="FloodFill" action="Delete" manual="false" minMatch="4" maxMatch="0">
+         <tags>
+               <string>Blue</string>         
+         </tags>
+      </pattern>
+      <pattern name="Yellow Clear" method="FloodFill" action="Delete" manual="false" minMatch="4" maxMatch="0">
+         <tags>
+               <string>Yellow</string>         
+         </tags>
+      </pattern>
+      <pattern name="Purple Clear" method="FloodFill" action="Delete" manual="false" minMatch="4" maxMatch="0">
+         <tags>
+               <string>Purple</string>         
+         </tags>
+      </pattern>
+      <pattern name="Red Connect" method="FloodFill" action="Connect" manual="false" minMatch="0" maxMatch="0">
+         <tags>
+               <string>Red</string>
+         </tags>
+      </pattern>
+      <pattern name="Green Connect" method="FloodFill" action="Connect" manual="false" minMatch="0" maxMatch="0">
+         <tags>
+               <string>Green</string>         
+         </tags>
+      </pattern>
+      <pattern name="Blue Connect" method="FloodFill" action="Connect" manual="false" minMatch="0" maxMatch="0">
+         <tags>
+               <string>Blue</string>         
+         </tags>
+      </pattern>
+      <pattern name="Yellow Connect" method="FloodFill" action="Connect" manual="false" minMatch="0" maxMatch="0">
+         <tags>
+               <string>Yellow</string>         
+         </tags>
+      </pattern>
+      <pattern name="Purple Connect" method="FloodFill" action="Connect" manual="false" minMatch="0" maxMatch="0">
+         <tags>
+               <string>Purple</string>         
+         </tags>
+      </pattern>
+   </patterns>
+   <!-- Speed definitions-->
+   <speeds>
+      <speed name="MainSpeed" gravity="1" denominator="60" are="0" areLine="0" lineDelay="12" stackFallDelay="1" lockDelay="30" das="12" arr="1" softDAS="1" softARR="1" softValue="20" softIsMultiply="true"/>
+   </speeds>
+   <!-- Level definitions-->
+   <levels>
+      <level name="Level #1" dispName="1" speed="MainSpeed" condition="stats.lines >= 10" />
+      <level name="Level #2" dispName="2" speed="MainSpeed" condition="stats.lines >= 20" />
+      <level name="Level #3" dispName="3" speed="MainSpeed" condition="stats.lines >= 30" />
+      <level name="Level #4" dispName="4" speed="MainSpeed" condition="stats.lines >= 40" />
+      <level name="Level #5" dispName="5" speed="MainSpeed" condition="stats.lines >= 50" />
+      <level name="Level #6" dispName="6" speed="MainSpeed" condition="stats.lines >= 60" />
+      <level name="Level #7" dispName="7" speed="MainSpeed" condition="stats.lines >= 70" />
+      <level name="Level #8" dispName="8" speed="MainSpeed" condition="stats.lines >= 80" />
+      <level name="Level #9" dispName="9" speed="MainSpeed" condition="stats.lines >= 90" />
+      <level name="Level #10" dispName="10" speed="MainSpeed" condition="stats.lines >= 100" />
+      <level name="Level #11" dispName="11" speed="MainSpeed" condition="stats.lines >= 110" />
+      <level name="Level #12" dispName="12" speed="MainSpeed" condition="stats.lines >= 120" />
+      <level name="Level #13" dispName="13" speed="MainSpeed" condition="stats.lines >= 130" />
+      <level name="Level #14" dispName="14" speed="MainSpeed" condition="stats.lines >= 140" />
+      <level name="Level #15" dispName="15" speed="MainSpeed" condition="stats.lines >= 150" />
+   </levels>
+   <!-- Move phase action order -->
+   <movePhase>
+      <string>spawn</string>
+      <string>hold</string>
+      <string>rotate</string>
+      <string>slide</string>
+      <string>soft</string>
+      <string>hard</string>
+      <string>gravity</string>
+      <string>lock</string>
+   </movePhase>
+</game>

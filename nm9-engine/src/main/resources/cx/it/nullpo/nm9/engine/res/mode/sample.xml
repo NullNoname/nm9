@@ -1,0 +1,643 @@
+<game name="Sample" scriptFileName="sample.js" scriptType="text/javascript">
+   <!-- Game config -->
+   <config>
+      <gameName>Sample</gameName>
+      <description>Sample Tetromino game for NullpoMino</description>
+      <gameType>Tetromino</gameType>
+      <randomizerBlackjack>bag of I,L,O,Z,T,J,S first I,L,T,J</randomizerBlackjack>
+      <stackFallType>Classic</stackFallType>
+      <spawnPushUp>1</spawnPushUp>
+      <allowIRS>false</allowIRS>
+      <allowIHS>false</allowIHS>
+   </config>
+   <!-- Block definitions-->
+   <blocks>
+      <block name="I block" color="Cyan">
+         <tags>
+               <string>Cyan</string>
+         </tags>
+      </block>
+      <block name="L block" color="Orange">
+         <tags>
+               <string>Orange</string>
+         </tags>
+      </block>
+      <block name="O block" color="Yellow">
+         <tags>
+               <string>Yellow</string>
+         </tags>
+      </block>
+      <block name="Z block" color="Red">
+         <tags>
+               <string>Red</string>
+         </tags>
+      </block>
+      <block name="T block" color="Purple">
+         <tags>
+               <string>Purple</string>
+         </tags>
+      </block>
+      <block name="J block" color="Blue">
+         <tags>
+               <string>Blue</string>
+         </tags>
+      </block>
+      <block name="S block" color="Green">
+         <tags>
+               <string>Green</string>
+         </tags>
+      </block>
+   </blocks>
+   <!-- Piece definitions-->
+   <pieces>
+      <piece name="I">
+         <blocks>
+            <string>I block</string>
+            <string>I block</string>
+            <string>I block</string>
+            <string>I block</string>
+         </blocks>
+         <states>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="0" y="1"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="2" y="1"/>
+               <XYPair x="3" y="1"/>
+            </pieceState>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="2" y="0"/>
+               <XYPair x="2" y="1"/>
+               <XYPair x="2" y="2"/>
+               <XYPair x="2" y="3"/>
+            </pieceState>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="3" y="2"/>
+               <XYPair x="2" y="2"/>
+               <XYPair x="1" y="2"/>
+               <XYPair x="0" y="2"/>
+            </pieceState>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="1" y="3"/>
+               <XYPair x="1" y="2"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="1" y="0"/>
+            </pieceState>
+         </states>
+         <wallkicks>
+            <!-- Left Rotation -->
+            <wallkick type="Offsets" stateFrom="0" stateTo="3">
+               <XYPair x="-1" y="0"/>
+               <XYPair x="2" y="0"/>
+               <XYPair x="-1" y="-2"/>
+               <XYPair x="2" y="1"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="1" stateTo="0">
+               <XYPair x="2" y="0"/>
+               <XYPair x="-1" y="0"/>
+               <XYPair x="2" y="-1"/>
+               <XYPair x="-1" y="2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="2" stateTo="1">
+               <XYPair x="1" y="0"/>
+               <XYPair x="-2" y="0"/>
+               <XYPair x="1" y="2"/>
+               <XYPair x="-2" y="-1"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="3" stateTo="2">
+               <XYPair x="-2" y="0"/>
+               <XYPair x="1" y="0"/>
+               <XYPair x="-2" y="1"/>
+               <XYPair x="1" y="-2"/>
+            </wallkick>
+            <!-- Right Rotation -->
+            <wallkick type="Offsets" stateFrom="0" stateTo="1">
+               <XYPair x="-2" y="0"/>
+               <XYPair x="1" y="0"/>
+               <XYPair x="-2" y="1"/>
+               <XYPair x="1" y="-2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="1" stateTo="2">
+               <XYPair x="-1" y="0"/>
+               <XYPair x="2" y="0"/>
+               <XYPair x="-1" y="-2"/>
+               <XYPair x="2" y="1"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="2" stateTo="3">
+               <XYPair x="2" y="0"/>
+               <XYPair x="-1" y="0"/>
+               <XYPair x="2" y="-1"/>
+               <XYPair x="-1" y="2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="3" stateTo="0">
+               <XYPair x="1" y="0"/>
+               <XYPair x="-2" y="0"/>
+               <XYPair x="1" y="2"/>
+               <XYPair x="-2" y="-1"/>
+            </wallkick>
+         </wallkicks>
+      </piece>
+      <piece name="L">
+         <blocks>
+            <string>L block</string>
+            <string>L block</string>
+            <string>L block</string>
+            <string>L block</string>
+         </blocks>
+         <states>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="2" y="0"/>
+               <XYPair x="2" y="1"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="0" y="1"/>
+            </pieceState>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="2" y="2"/>
+               <XYPair x="1" y="2"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="1" y="0"/>
+            </pieceState>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="0" y="2"/>
+               <XYPair x="0" y="1"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="2" y="1"/>
+            </pieceState>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="0" y="0"/>
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="1" y="2"/>
+            </pieceState>
+         </states>
+         <wallkicks>
+            <!-- Left Rotation -->
+            <wallkick type="Offsets" stateFrom="0" stateTo="3">
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="-1"/>
+               <XYPair x="0" y="2"/>
+               <XYPair x="1" y="2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="1" stateTo="0">
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="0" y="-2"/>
+               <XYPair x="1" y="-2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="2" stateTo="1">
+               <XYPair x="-1" y="0"/>
+               <XYPair x="-1" y="-1"/>
+               <XYPair x="0" y="2"/>
+               <XYPair x="-1" y="2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="3" stateTo="2">
+               <XYPair x="-1" y="0"/>
+               <XYPair x="-1" y="1"/>
+               <XYPair x="0" y="-2"/>
+               <XYPair x="-1" y="-2"/>
+            </wallkick>
+            <!-- Right Rotation -->
+            <wallkick type="Offsets" stateFrom="0" stateTo="1">
+               <XYPair x="-1" y="0"/>
+               <XYPair x="-1" y="-1"/>
+               <XYPair x="0" y="2"/>
+               <XYPair x="-1" y="2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="1" stateTo="2">
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="0" y="-2"/>
+               <XYPair x="1" y="-2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="2" stateTo="3">
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="-1"/>
+               <XYPair x="0" y="2"/>
+               <XYPair x="1" y="2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="3" stateTo="0">
+               <XYPair x="-1" y="0"/>
+               <XYPair x="-1" y="1"/>
+               <XYPair x="0" y="-2"/>
+               <XYPair x="-1" y="-2"/>
+            </wallkick>
+         </wallkicks>
+      </piece>
+      <piece name="O">
+         <blocks>
+            <string>O block</string>
+            <string>O block</string>
+            <string>O block</string>
+            <string>O block</string>
+         </blocks>
+         <states>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="0" y="0"/>
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="0" y="1"/>
+            </pieceState>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="0" y="1"/>
+               <XYPair x="0" y="0"/>
+            </pieceState>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="1" y="1"/>
+               <XYPair x="0" y="1"/>
+               <XYPair x="0" y="0"/>
+               <XYPair x="1" y="0"/>
+            </pieceState>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="0" y="1"/>
+               <XYPair x="0" y="0"/>
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="1"/>
+            </pieceState>
+         </states>
+         <wallkicks>
+         </wallkicks>
+      </piece>
+      <piece name="Z">
+         <blocks>
+            <string>Z block</string>
+            <string>Z block</string>
+            <string>Z block</string>
+            <string>Z block</string>
+         </blocks>
+         <states>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="0" y="0"/>
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="2" y="1"/>
+            </pieceState>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="2" y="0"/>
+               <XYPair x="2" y="1"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="1" y="2"/>
+            </pieceState>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="2" y="2"/>
+               <XYPair x="1" y="2"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="0" y="1"/>
+            </pieceState>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="0" y="2"/>
+               <XYPair x="0" y="1"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="1" y="0"/>
+            </pieceState>
+         </states>
+         <wallkicks>
+            <!-- Left Rotation -->
+            <wallkick type="Offsets" stateFrom="0" stateTo="3">
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="-1"/>
+               <XYPair x="0" y="2"/>
+               <XYPair x="1" y="2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="1" stateTo="0">
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="0" y="-2"/>
+               <XYPair x="1" y="-2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="2" stateTo="1">
+               <XYPair x="-1" y="0"/>
+               <XYPair x="-1" y="-1"/>
+               <XYPair x="0" y="2"/>
+               <XYPair x="-1" y="2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="3" stateTo="2">
+               <XYPair x="-1" y="0"/>
+               <XYPair x="-1" y="1"/>
+               <XYPair x="0" y="-2"/>
+               <XYPair x="-1" y="-2"/>
+            </wallkick>
+            <!-- Right Rotation -->
+            <wallkick type="Offsets" stateFrom="0" stateTo="1">
+               <XYPair x="-1" y="0"/>
+               <XYPair x="-1" y="-1"/>
+               <XYPair x="0" y="2"/>
+               <XYPair x="-1" y="2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="1" stateTo="2">
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="0" y="-2"/>
+               <XYPair x="1" y="-2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="2" stateTo="3">
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="-1"/>
+               <XYPair x="0" y="2"/>
+               <XYPair x="1" y="2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="3" stateTo="0">
+               <XYPair x="-1" y="0"/>
+               <XYPair x="-1" y="1"/>
+               <XYPair x="0" y="-2"/>
+               <XYPair x="-1" y="-2"/>
+            </wallkick>
+         </wallkicks>
+      </piece>
+      <piece name="T">
+         <blocks>
+            <string>T block</string>
+            <string>T block</string>
+            <string>T block</string>
+            <string>T block</string>
+         </blocks>
+         <states>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="1" y="0"/>
+               <XYPair x="0" y="1"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="2" y="1"/>
+            </pieceState>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="2" y="1"/>
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="1" y="2"/>
+            </pieceState>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="1" y="2"/>
+               <XYPair x="2" y="1"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="0" y="1"/>
+            </pieceState>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="0" y="1"/>
+               <XYPair x="1" y="2"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="1" y="0"/>
+            </pieceState>
+         </states>
+         <wallkicks>
+            <!-- Left Rotation -->
+            <wallkick type="Offsets" stateFrom="0" stateTo="3">
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="-1"/>
+               <XYPair x="0" y="2"/>
+               <XYPair x="1" y="2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="1" stateTo="0">
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="0" y="-2"/>
+               <XYPair x="1" y="-2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="2" stateTo="1">
+               <XYPair x="-1" y="0"/>
+               <XYPair x="-1" y="-1"/>
+               <XYPair x="0" y="2"/>
+               <XYPair x="-1" y="2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="3" stateTo="2">
+               <XYPair x="-1" y="0"/>
+               <XYPair x="-1" y="1"/>
+               <XYPair x="0" y="-2"/>
+               <XYPair x="-1" y="-2"/>
+            </wallkick>
+            <!-- Right Rotation -->
+            <wallkick type="Offsets" stateFrom="0" stateTo="1">
+               <XYPair x="-1" y="0"/>
+               <XYPair x="-1" y="-1"/>
+               <XYPair x="0" y="2"/>
+               <XYPair x="-1" y="2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="1" stateTo="2">
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="0" y="-2"/>
+               <XYPair x="1" y="-2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="2" stateTo="3">
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="-1"/>
+               <XYPair x="0" y="2"/>
+               <XYPair x="1" y="2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="3" stateTo="0">
+               <XYPair x="-1" y="0"/>
+               <XYPair x="-1" y="1"/>
+               <XYPair x="0" y="-2"/>
+               <XYPair x="-1" y="-2"/>
+            </wallkick>
+         </wallkicks>
+      </piece>
+      <piece name="J">
+         <blocks>
+            <string>J block</string>
+            <string>J block</string>
+            <string>J block</string>
+            <string>J block</string>
+         </blocks>
+         <states>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="0" y="0"/>
+               <XYPair x="0" y="1"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="2" y="1"/>
+            </pieceState>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="2" y="0"/>
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="1" y="2"/>
+            </pieceState>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="2" y="2"/>
+               <XYPair x="2" y="1"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="0" y="1"/>
+            </pieceState>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="0" y="2"/>
+               <XYPair x="1" y="2"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="1" y="0"/>
+            </pieceState>
+         </states>
+         <wallkicks>
+            <!-- Left Rotation -->
+            <wallkick type="Offsets" stateFrom="0" stateTo="3">
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="-1"/>
+               <XYPair x="0" y="2"/>
+               <XYPair x="1" y="2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="1" stateTo="0">
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="0" y="-2"/>
+               <XYPair x="1" y="-2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="2" stateTo="1">
+               <XYPair x="-1" y="0"/>
+               <XYPair x="-1" y="-1"/>
+               <XYPair x="0" y="2"/>
+               <XYPair x="-1" y="2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="3" stateTo="2">
+               <XYPair x="-1" y="0"/>
+               <XYPair x="-1" y="1"/>
+               <XYPair x="0" y="-2"/>
+               <XYPair x="-1" y="-2"/>
+            </wallkick>
+            <!-- Right Rotation -->
+            <wallkick type="Offsets" stateFrom="0" stateTo="1">
+               <XYPair x="-1" y="0"/>
+               <XYPair x="-1" y="-1"/>
+               <XYPair x="0" y="2"/>
+               <XYPair x="-1" y="2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="1" stateTo="2">
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="0" y="-2"/>
+               <XYPair x="1" y="-2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="2" stateTo="3">
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="-1"/>
+               <XYPair x="0" y="2"/>
+               <XYPair x="1" y="2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="3" stateTo="0">
+               <XYPair x="-1" y="0"/>
+               <XYPair x="-1" y="1"/>
+               <XYPair x="0" y="-2"/>
+               <XYPair x="-1" y="-2"/>
+            </wallkick>
+         </wallkicks>
+      </piece>
+      <piece name="S">
+         <blocks>
+            <string>S block</string>
+            <string>S block</string>
+            <string>S block</string>
+            <string>S block</string>
+         </blocks>
+         <states>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="2" y="0"/>
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="0" y="1"/>
+            </pieceState>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="2" y="2"/>
+               <XYPair x="2" y="1"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="1" y="0"/>
+            </pieceState>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="0" y="2"/>
+               <XYPair x="1" y="2"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="2" y="1"/>
+            </pieceState>
+            <pieceState spawnOffsetY="1">
+               <XYPair x="0" y="0"/>
+               <XYPair x="0" y="1"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="1" y="2"/>
+            </pieceState>
+         </states>
+         <wallkicks>
+            <!-- Left Rotation -->
+            <wallkick type="Offsets" stateFrom="0" stateTo="3">
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="-1"/>
+               <XYPair x="0" y="2"/>
+               <XYPair x="1" y="2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="1" stateTo="0">
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="0" y="-2"/>
+               <XYPair x="1" y="-2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="2" stateTo="1">
+               <XYPair x="-1" y="0"/>
+               <XYPair x="-1" y="-1"/>
+               <XYPair x="0" y="2"/>
+               <XYPair x="-1" y="2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="3" stateTo="2">
+               <XYPair x="-1" y="0"/>
+               <XYPair x="-1" y="1"/>
+               <XYPair x="0" y="-2"/>
+               <XYPair x="-1" y="-2"/>
+            </wallkick>
+            <!-- Right Rotation -->
+            <wallkick type="Offsets" stateFrom="0" stateTo="1">
+               <XYPair x="-1" y="0"/>
+               <XYPair x="-1" y="-1"/>
+               <XYPair x="0" y="2"/>
+               <XYPair x="-1" y="2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="1" stateTo="2">
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="1"/>
+               <XYPair x="0" y="-2"/>
+               <XYPair x="1" y="-2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="2" stateTo="3">
+               <XYPair x="1" y="0"/>
+               <XYPair x="1" y="-1"/>
+               <XYPair x="0" y="2"/>
+               <XYPair x="1" y="2"/>
+            </wallkick>
+            <wallkick type="Offsets" stateFrom="3" stateTo="0">
+               <XYPair x="-1" y="0"/>
+               <XYPair x="-1" y="1"/>
+               <XYPair x="0" y="-2"/>
+               <XYPair x="-1" y="-2"/>
+            </wallkick>
+         </wallkicks>
+      </piece>
+   </pieces>
+   <!-- Pattern definitions-->
+   <patterns>
+      <pattern name="Line Clear" method="Horizontal" action="Delete" manual="false" minMatch="10" maxMatch="0" />
+   </patterns>
+   <!-- Speed definitions-->
+   <speeds>
+      <speed name="MainSpeed" gravity="1" denominator="60" are="0" areLine="0" lineDelay="12" stackFallDelay="1" lockDelay="30" das="12" arr="1" softDAS="1" softARR="1" softValue="20" softIsMultiply="true"/>
+   </speeds>
+   <!-- Level definitions-->
+   <levels>
+      <level name="Level #1" dispName="1" speed="MainSpeed" condition="stats.lines >= 10" />
+      <level name="Level #2" dispName="2" speed="MainSpeed" condition="stats.lines >= 20" />
+      <level name="Level #3" dispName="3" speed="MainSpeed" condition="stats.lines >= 30" />
+      <level name="Level #4" dispName="4" speed="MainSpeed" condition="stats.lines >= 40" />
+      <level name="Level #5" dispName="5" speed="MainSpeed" condition="stats.lines >= 50" />
+      <level name="Level #6" dispName="6" speed="MainSpeed" condition="stats.lines >= 60" />
+      <level name="Level #7" dispName="7" speed="MainSpeed" condition="stats.lines >= 70" />
+      <level name="Level #8" dispName="8" speed="MainSpeed" condition="stats.lines >= 80" />
+      <level name="Level #9" dispName="9" speed="MainSpeed" condition="stats.lines >= 90" />
+      <level name="Level #10" dispName="10" speed="MainSpeed" condition="stats.lines >= 100" />
+      <level name="Level #11" dispName="11" speed="MainSpeed" condition="stats.lines >= 110" />
+      <level name="Level #12" dispName="12" speed="MainSpeed" condition="stats.lines >= 120" />
+      <level name="Level #13" dispName="13" speed="MainSpeed" condition="stats.lines >= 130" />
+      <level name="Level #14" dispName="14" speed="MainSpeed" condition="stats.lines >= 140" />
+      <level name="Level #15" dispName="15" speed="MainSpeed" condition="stats.lines >= 150" />
+   </levels>
+   <!-- Move phase action order -->
+   <movePhase>
+      <string>hold</string>
+      <string>spawn</string>
+      <string>rotate</string>
+      <string>slide</string>
+      <string>soft</string>
+      <string>hard</string>
+      <string>gravity</string>
+      <string>lock</string>
+   </movePhase>
+</game>
